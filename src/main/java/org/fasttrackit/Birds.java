@@ -1,8 +1,8 @@
 package org.fasttrackit;
 
-public class Birds {
-    String name;
-    String size;
-    String species;
+public class Birds extends Pet{
+    boolean eggs;
+    int numberOfEggs;
+    boolean flyingOrNot;
 
 }

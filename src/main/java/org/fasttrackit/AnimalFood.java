@@ -1,11 +1,9 @@
 package org.fasttrackit;
 
-import java.time.LocalDate;
-
-public class AnimalFood {
+public class AnimalFood extends Food{
     String name;
-    double price;
-    int quantity;
-    boolean available;
-    LocalDate dataExpirare;
+
+    String foodFor; // pentru ce animal este mancarea (caine, pisica, etc)
+
+
 }

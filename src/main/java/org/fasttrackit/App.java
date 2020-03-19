@@ -1,5 +1,7 @@
 package org.fasttrackit;
 
+import java.time.LocalDate;
+
 public class App
 {
     public static void main( String[] args ) {
@@ -33,5 +35,19 @@ public class App
         veterinar.speciality = "VetDentist";
         System.out.println("Vet name: " + veterinar.name);
         System.out.println("Speciality: " + veterinar.speciality);
+
+        AnimalFood mancare = new AnimalFood();
+        mancare.name = "Eukanuba";
+        mancare.dataExpirare = LocalDate.of(2020,11,10);
+        mancare.price = 15;
+        mancare.typeOfFood = "Boabe/sac";
+        mancare.quantity = 1;
+        mancare.available = true;
+        System.out.println();
+        System.out.println("Food name: " + mancare.name);
+        System.out.println("Expire due: " + mancare.dataExpirare);
+        System.out.println("Price: " + mancare.price + " $");
+
+
     }
 }
