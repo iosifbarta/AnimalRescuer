@@ -40,7 +40,7 @@ public class App
         mancare.name = "Eukanuba";
         mancare.dataExpirare = LocalDate.of(2020,11,10);
         mancare.price = 15;
-        mancare.typeOfFood = "Boabe/sac";
+        mancare.typeOfFood = "Dietetic";
         mancare.quantity = 1;
         mancare.available = true;
         System.out.println();

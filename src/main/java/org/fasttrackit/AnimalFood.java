@@ -2,8 +2,6 @@ package org.fasttrackit;
 
 public class AnimalFood extends Food{
     String name;
-
-    String foodFor; // pentru ce animal este mancarea (caine, pisica, etc)
-
-
+    String rewards; //recompensa
+    String typeOfFood; //activitate intensa- normala - dietetic
 }

@@ -4,7 +4,7 @@ import java.time.LocalDate;
 
 public class Food {
 
-    String typeOfFood; //birds-animal, hrana umeda-uscata
+    String dedicated; //birds-animal,
     int quantity;
     double price;
     LocalDate dataExpirare;
