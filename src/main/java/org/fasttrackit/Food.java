@@ -9,6 +9,17 @@ public class Food {
     double price;
     LocalDate dataExpirare;
     boolean available;
+    String name;
+
+//    public Food(String name, double price, String dedicated) {
+//        this.price = price;
+//        this.dedicated = dedicated;
+//        this.name = name;
 
 
+    public Food(String name, double price, String dedicated) {
+    this.name = name;
+    this.price = price;
+    this.dedicated = dedicated;
+    }
 }

@@ -36,7 +36,7 @@ public class App
         System.out.println("Vet name: " + veterinar.name);
         System.out.println("Speciality: " + veterinar.speciality);
 
-        AnimalFood mancare = new AnimalFood();
+        AnimalFood mancare = new AnimalFood("Eukanuba", 15, "Dog");
         mancare.name = "Eukanuba";
         mancare.dataExpirare = LocalDate.of(2020,11,10);
         mancare.price = 15;
