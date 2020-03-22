@@ -5,4 +5,8 @@ public class Birds extends Pet{
     int numberOfEggs;
     boolean flyingOrNot;
 
+
+    public Birds(String name) {
+        super(name);
+    }
 }
