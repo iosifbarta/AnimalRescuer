@@ -1,8 +1,10 @@
 package org.fasttrackit;
 
 public class Rescuer {
-    String name;
-    double cash;
+    private String name;
+    private double cash;
+    private String gender;
+    private String category; //child or man
 
     public Rescuer(String name) {
         this.name = name;

@@ -1,9 +1,9 @@
 package org.fasttrackit;
 
 public class Activity {
-    String name;
-    int price;
-    int duration;
+    private String name;
+    private int price;
+    private int duration;
 
     public Activity(String name) {
         this.name = name;

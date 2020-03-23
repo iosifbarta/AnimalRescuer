@@ -1,8 +1,8 @@
 package org.fasttrackit;
 
 public class Game {
-      String animal;
-      String rescuer;
-      String vet;
+      private String animal;
+      private String rescuer;
+      private String vet;
 
    }

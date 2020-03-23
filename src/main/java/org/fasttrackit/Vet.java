@@ -1,7 +1,7 @@
 package org.fasttrackit;
 
 public class Vet {
-    String name;
-    String speciality;
+    private String name;
+    private String speciality;
 
 }

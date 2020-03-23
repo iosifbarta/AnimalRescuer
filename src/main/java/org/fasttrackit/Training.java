@@ -1,8 +1,8 @@
 package org.fasttrackit;
 
 public class Training extends Activity {
-    boolean trainer;
-    int levelOfTrainer;
+    private boolean trainer;
+    private int levelOfTrainer;
 
     public Training(String name) {
         super(name);

@@ -7,22 +7,27 @@ public class AnimalFood extends Food{
 
     public AnimalFood(String name) {
         super(name);
-
     }
 
-        public String getTypeOfFood() {
+    public String getRewards() {
+        return rewards;
+    }
+
+    public void setRewards(String rewards) {
+        this.rewards = rewards;
+    }
+
+    public String getTypeOfFood() {
         return typeOfFood;
     }
 
     public void setTypeOfFood(String typeOfFood) {
         this.typeOfFood = typeOfFood;
     }
-
-    public String getName() {
+    public String getName(){
         return name;
     }
-
-    public void setName(String name) {
+    public  void setName(String name){
         this.name = name;
     }
 }

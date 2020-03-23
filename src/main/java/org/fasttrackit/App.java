@@ -47,7 +47,7 @@ public class App
 //        System.out.println("Speciality: " + veterinar.speciality);
 //
         AnimalFood mancare = new AnimalFood("Eukanuba");
-        mancare.setName("Eukanuba");
+        mancare.name = ("Eukanuba");
         mancare.dataExpirare = LocalDate.of(2020,11,10);
         mancare.price = 15;
         mancare.setTypeOfFood("Dietetic");

@@ -2,18 +2,18 @@ package org.fasttrackit;
 
 public class Animal{
     String name;
-     int age;
-     int healthyLevel;
-     int hungryLevel;
-     int moodLevel;
-     String breed; //caine, pisica, iepure, cal, reptila etc
-     String typeOfHair;
-     String favFood;
-     String favEntertainment;
-     String size;
-     String gender;
-     boolean clean;
-     boolean fiziologicNeed;
+     private int age;
+     private int healthyLevel;
+     private int hungryLevel;
+     private int moodLevel;
+     private String breed; //caine, pisica, iepure, cal, reptila etc
+     private String typeOfHair;
+     private String favFood;
+     private String favEntertainment;
+     private String size;
+     private String gender;
+     private boolean clean;
+     private boolean fiziologicNeed;
 
     public Animal(String name) {
         this.name = name;
