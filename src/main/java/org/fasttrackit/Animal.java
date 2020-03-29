@@ -6,10 +6,9 @@ public class Animal{
      private int healthyLevel;
      private int hungryLevel;
      private int moodLevel;
-     private String breed; //caine, pisica, iepure, cal, reptila etc
      private String typeOfHair;
-     private String favFood;
-     private String favEntertainment;
+     private String favoriteFood;
+     private String favoriteEntertainment;
      private String size;
      private String gender;
      private boolean clean;
@@ -17,7 +16,6 @@ public class Animal{
 
     public Animal(String name) {
         this.name = name;
-
     }
 
     public String getName() {
@@ -60,15 +58,7 @@ public class Animal{
         this.moodLevel = moodLevel;
     }
 
-    public String getRase() {
-        return breed;
-    }
-
-    public void setRase(String rase) {
-        this.breed = rase;
-    }
-
-    public String getTypeOfHair() {
+     public String getTypeOfHair() {
         return typeOfHair;
     }
 
@@ -77,19 +67,19 @@ public class Animal{
     }
 
     public String getFavFood() {
-        return favFood;
+        return favoriteFood;
     }
 
     public void setFavFood(String favFood) {
-        this.favFood = favFood;
+        this.favoriteFood = favFood;
     }
 
     public String getFavEntertainment() {
-        return favEntertainment;
+        return favoriteEntertainment;
     }
 
     public void setFavEntertainment(String favEntertainment) {
-        this.favEntertainment = favEntertainment;
+        this.favoriteEntertainment = favoriteEntertainment;
     }
 
     public String getSize() {

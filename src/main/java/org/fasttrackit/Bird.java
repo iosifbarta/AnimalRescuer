@@ -1,11 +1,11 @@
 package org.fasttrackit;
 
-public class Birds extends Pet{
+public class Bird extends Animal{
     private boolean eggs;
     private int numberOfEggs;
     private boolean flyingOrNot;
 
-    public Birds(String name) {
+    public Bird(String name) {
         super(name);
     }
 }

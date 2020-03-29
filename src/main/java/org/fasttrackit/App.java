@@ -9,12 +9,11 @@ public class App
 
         System.out.println( "Hello to Animal Rescuer!!" );
         System.out.println();
-//        Animal dog = new Animal();
-//        dog.name = "Kido";
-//        dog.healthyLevel = 9;
-//        dog.age = 11;
-//        dog.hungryLevel = 6;
-//        dog.moodLevel = 8;
+
+//        dog.getHealthyLevel();
+//        dog.getAge();
+//        dog.getHungryLevel();
+//        dog.getMoodLevel();
 //        System.out.println();
 //        System.out.println("Name of the pet: " + dog.name);
 //        System.out.println("Age of the pet: " + dog.age + " years");
@@ -25,11 +24,16 @@ public class App
 
         Rescuer rescuer = new Rescuer("John");
         Animal animal = new Animal("Kido");
+        animal.setFavFood("Eukanuba");
+        animal.setFavEntertainment("Hide &Seek");
+        animal.setHungryLevel(5);
+        animal.setMoodLevel(7);
+
         Activity activity = new Activity("walking");
-        AnimalFood animalFood = new AnimalFood("Eukanuba");
-        rescuer.toFeed(animal, 6,animalFood);
+        AnimalFood animalFood = new AnimalFood("Purina");
+        rescuer.toFeed(animal, animalFood);
         System.out.println();
-        rescuer.recreation(animal, 8, activity);
+        rescuer.recreation(animal, activity);
 
 
 
@@ -47,7 +51,6 @@ public class App
 //        System.out.println("Speciality: " + veterinar.speciality);
 //
         AnimalFood mancare = new AnimalFood("Eukanuba");
-        mancare.name = ("Eukanuba");
         mancare.dataExpirare = LocalDate.of(2020,11,10);
         mancare.price = 15;
         mancare.setTypeOfFood("Dietetic");

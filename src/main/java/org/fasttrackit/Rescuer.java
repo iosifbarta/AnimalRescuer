@@ -10,14 +10,24 @@ public class Rescuer {
         this.name = name;
     }
 
-    public void toFeed (Animal animal, int hungryLevel, AnimalFood animalFood){
+    public void toFeed(Animal animal, AnimalFood animalFood){
+        int hungryLevel = animal.getHungryLevel();
 
         if (hungryLevel <= 10 && hungryLevel >= 0);
-        {hungryLevel--;}
-        System.out.println(Rescuer.this.name + " just gave some " + animalFood.getName() + " food to " + animal.getName() +
-                " and hungry level is: " + hungryLevel);
+        {
+            hungryLevel--;}
+
+
+        if (animalFood.getName() == animal.getFavFood());{
+            int moodLevel = animal.getMoodLevel();
+            moodLevel++;
+            System.out.println(Rescuer.this.name + " just gave some " + animalFood.getName() + " food to " + animal.getName()
+                    + " and hungry level is: " + hungryLevel + ". Mood Level is:  " +moodLevel);
+        }
+
 //    }
-}public void recreation(Animal animal, int moodLevel, Activity activity){
+}public void recreation(Animal animal, Activity activity){
+        int moodLevel = animal.getMoodLevel();
         if (moodLevel <= 10 && moodLevel >= 0);
         {moodLevel++;}
         System.out.println("The name of rescuer is: " + Rescuer.this.name );
