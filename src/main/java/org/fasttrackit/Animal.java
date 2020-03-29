@@ -58,7 +58,7 @@ public class Animal{
         this.moodLevel = moodLevel;
     }
 
-     public String getTypeOfHair() {
+    public String getTypeOfHair() {
         return typeOfHair;
     }
 
@@ -66,19 +66,19 @@ public class Animal{
         this.typeOfHair = typeOfHair;
     }
 
-    public String getFavFood() {
+    public String getFavoriteFood() {
         return favoriteFood;
     }
 
-    public void setFavFood(String favFood) {
-        this.favoriteFood = favFood;
+    public void setFavoriteFood(String favoriteFood) {
+        this.favoriteFood = favoriteFood;
     }
 
-    public String getFavEntertainment() {
+    public String getFavoriteEntertainment() {
         return favoriteEntertainment;
     }
 
-    public void setFavEntertainment(String favEntertainment) {
+    public void setFavoriteEntertainment(String favoriteEntertainment) {
         this.favoriteEntertainment = favoriteEntertainment;
     }
 

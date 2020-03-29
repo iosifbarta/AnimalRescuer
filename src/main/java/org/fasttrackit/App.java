@@ -24,16 +24,22 @@ public class App
 
         Rescuer rescuer = new Rescuer("John");
         Animal animal = new Animal("Kido");
-        animal.setFavFood("Eukanuba");
-        animal.setFavEntertainment("Hide &Seek");
+        animal.setFavoriteFood("Eukanuba");
+        animal.setFavoriteEntertainment("Hide & Seek");
         animal.setHungryLevel(5);
         animal.setMoodLevel(7);
 
+
         Activity activity = new Activity("walking");
         AnimalFood animalFood = new AnimalFood("Purina");
+        AnimalFood animalFood1 = new AnimalFood("Eukanuba");
         rescuer.toFeed(animal, animalFood);
+        rescuer.toFeed(animal, animalFood1);
         System.out.println();
         rescuer.recreation(animal, activity);
+
+        Activity activity1 = new Activity("Hide & Seek");
+        rescuer.recreation(animal, activity1);
 
 
 
