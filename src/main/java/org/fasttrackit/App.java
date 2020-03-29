@@ -57,15 +57,15 @@ public class App
 //        System.out.println("Speciality: " + veterinar.speciality);
 //
         AnimalFood mancare = new AnimalFood("Eukanuba");
-        mancare.dataExpirare = LocalDate.of(2020,11,10);
-        mancare.price = 15;
+        mancare.setDataExpirare(LocalDate.of(2020, 12, 10));
+        mancare.setPrice(15);
         mancare.setTypeOfFood("Dietetic");
-        mancare.quantity = 1;
-        mancare.available = true;
+        mancare.setQuantity(1);
+        mancare.setAvailable(true);
         System.out.println();
         System.out.println("Food name: " + mancare.getName());
-        System.out.println("Expire due: " + mancare.dataExpirare);
-        System.out.println("Price: " + mancare.price + " $");
+        System.out.println("Expire due: " + mancare.getDataExpirare());
+        System.out.println("Price: " + mancare.getPrice() + " $");
 
     }
 }

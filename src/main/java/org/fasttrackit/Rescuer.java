@@ -34,7 +34,37 @@ public class Rescuer {
         System.out.println("The name of rescuer is: " + Rescuer.this.name);
         System.out.println("New activity available: " + activity.getName() + ", for your dog " + animal.getName() +
                     ".  Happiness for your pet increase to: " + moodLevel);
+    }
 
+    public String getName() {
+        return name;
+    }
 
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public double getCash() {
+        return cash;
+    }
+
+    public void setCash(double cash) {
+        this.cash = cash;
+    }
+
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
     }
 }
