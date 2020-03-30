@@ -13,10 +13,20 @@ public class Animal{
      private String gender;
      private boolean clean;
      private boolean fiziologicNeed;
+     private String action;// da din coada, toarce, latra, miauna
 
     public Animal(String name) {
         this.name = name;
     }
+
+
+    public void displayMoodlevel(String name) {
+        int moodLevel = getMoodLevel();
+        if (action != null){moodLevel++;}
+        else moodLevel = getMoodLevel();
+        System.out.println(name + " has happiness level to: " + moodLevel);
+    }
+
 
     public String getName() {
         return name;
@@ -112,5 +122,13 @@ public class Animal{
 
     public void setFiziologicNeed(boolean fiziologicNeed) {
         this.fiziologicNeed = fiziologicNeed;
+    }
+
+    public String getAction() {
+        return action;
+    }
+
+    public void setAction(String action) {
+        this.action = action;
     }
 }

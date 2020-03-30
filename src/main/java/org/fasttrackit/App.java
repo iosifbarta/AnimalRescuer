@@ -2,8 +2,7 @@ package org.fasttrackit;
 
 import java.time.LocalDate;
 
-public class App
-{
+public class App {
 
     public static void main(String[] args ) {
 
@@ -23,23 +22,43 @@ public class App
 //        System.out.println();
 
         Rescuer rescuer = new Rescuer("John");
-        Animal animal = new Animal("Kido");
-        animal.setFavoriteFood("Eukanuba");
-        animal.setFavoriteEntertainment("Hide & Seek");
-        animal.setHungryLevel(5);
-        animal.setMoodLevel(7);
+//        Animal animal = new Animal("Kido");
+//        animal.setFavoriteFood("Eukanuba");
+//        animal.setFavoriteEntertainment("Hide & Seek");
+//        animal.setHungryLevel(5);
+//        animal.setMoodLevel(7);
+        Pet dog = new Pet("Kido", "dog");
+        dog.setAction("wags his tail");
+        dog.setBreed("dog");
+        dog.setMoodLevel(5);
+        Pet cat = new Pet("Mitizi", "cat");
+        cat.setAction("purring");
+        cat.setBreed("cat");
+        cat.setMoodLevel(5);
+        Pet pig = new Pet("Pepa", "pig");
+        pig.setAction("grunt");
+        pig.setBreed("pig");
+        pig.setMoodLevel(5);
+        dog.displayMoodlevel("Kido");
+        cat.displayMoodlevel("Mitzi");
+        pig.displayMoodlevel("Pepa");
 
 
-        Activity activity = new Activity("walking");
-        AnimalFood animalFood = new AnimalFood("Purina");
-        AnimalFood animalFood1 = new AnimalFood("Eukanuba");
-        rescuer.toFeed(animal, animalFood);
-        rescuer.toFeed(animal, animalFood1);
-        System.out.println();
-        rescuer.recreation(animal, activity);
 
-        Activity activity1 = new Activity("Hide & Seek");
-        rescuer.recreation(animal, activity1);
+
+
+
+
+//        Activity activity = new Activity("walking");
+//        AnimalFood animalFood = new AnimalFood("Purina");
+//        AnimalFood animalFood1 = new AnimalFood("Eukanuba");
+//        rescuer.toFeed(animal, animalFood);
+//        rescuer.toFeed(animal, animalFood1);
+//        System.out.println();
+//        rescuer.recreation(animal, activity);
+//
+//        Activity activity1 = new Activity("Hide & Seek");
+//        rescuer.recreation(animal, activity1);
 
 
 
