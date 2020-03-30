@@ -32,4 +32,9 @@ public class Bird extends Animal{
     public void setFlyingOrNot(boolean flyingOrNot) {
         this.flyingOrNot = flyingOrNot;
     }
+
+    @Override
+    public void displayMoodlevel(String name) {
+        super.displayMoodlevel(name);
+    }
 }

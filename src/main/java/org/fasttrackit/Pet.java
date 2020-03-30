@@ -17,7 +17,7 @@ public class Pet extends Animal{
 
     @Override
     public void displayMoodlevel(String name) {
-        System.out.println("My " + getBreed() + " " + getAction() + ".");
+        System.out.println("My " + getBreed() + " " + name + " " + getAction() + ".");
         super.displayMoodlevel(name);
     }
 }

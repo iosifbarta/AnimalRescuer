@@ -39,6 +39,8 @@ public class App {
         pig.setAction("grunt");
         pig.setBreed("pig");
         pig.setMoodLevel(5);
+        Bird parrot = new Bird("Blue");
+        parrot.setAction("singing");
         dog.displayMoodlevel("Kido");
         cat.displayMoodlevel("Mitzi");
         pig.displayMoodlevel("Pepa");
