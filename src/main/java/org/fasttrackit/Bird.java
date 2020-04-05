@@ -4,10 +4,13 @@ public class Bird extends Animal{
     private boolean eggs;
     private int numberOfEggs;
     private boolean flyingOrNot;
+    protected String species;
 
-    public Bird(String name) {
+    public Bird(String name, String species) {
         super(name);
+        this.species = species;
     }
+
 
     public boolean isEggs() {
         return eggs;
@@ -33,8 +36,17 @@ public class Bird extends Animal{
         this.flyingOrNot = flyingOrNot;
     }
 
+    public String getSpecies() {
+        return species;
+    }
+
+    public void setSpecies(String species) {
+        this.species = species;
+    }
+
     @Override
     public void displayMoodlevel(String name) {
+        System.out.println("My " + getSpecies() + " " + name + " " + getAction() + ".");
         super.displayMoodlevel(name);
     }
 }

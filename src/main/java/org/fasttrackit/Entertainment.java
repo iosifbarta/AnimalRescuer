@@ -1,11 +1,11 @@
 package org.fasttrackit;
 
-public class Entertainement extends Activity {
-
+public class Entertainment extends Activity {
     private String games;
     private String toys;
 
-    public Entertainement(String name) {
+
+    public Entertainment(String name) {
         super(name);
     }
 

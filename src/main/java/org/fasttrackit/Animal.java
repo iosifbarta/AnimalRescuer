@@ -24,7 +24,7 @@ public class Animal{
         int moodLevel = getMoodLevel();
         if (action != null){moodLevel++;}
         else moodLevel = getMoodLevel();
-        System.out.println(name + " has happiness level to: " + moodLevel);
+        System.out.println(name + " has happiness level: " + moodLevel);
     }
 
 

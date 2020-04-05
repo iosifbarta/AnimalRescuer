@@ -62,4 +62,13 @@ public class Food {
     public void setName(String name) {
         this.name = name;
     }
+
+    @Override
+    public String toString() {
+        return "Food{" +
+                "quantity=" + quantity +
+                ", price=" + price +
+                ", name='" + name + '\'' +
+                '}';
+    }
 }

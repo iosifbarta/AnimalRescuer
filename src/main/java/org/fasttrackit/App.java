@@ -5,9 +5,9 @@ import java.time.LocalDate;
 public class App {
 
     public static void main(String[] args ) {
-
-        System.out.println( "Hello to Animal Rescuer!!" );
-        System.out.println();
+        Game game = new Game();
+        game.start();
+    }
 
 //        dog.getHealthyLevel();
 //        dog.getAge();
@@ -20,30 +20,30 @@ public class App {
 //        System.out.println("Hungry Level: " + dog.hungryLevel);
 //        System.out.println("Mood Level: " + dog.moodLevel);
 //        System.out.println();
-
-        Rescuer rescuer = new Rescuer("John");
-//        Animal animal = new Animal("Kido");
-//        animal.setFavoriteFood("Eukanuba");
-//        animal.setFavoriteEntertainment("Hide & Seek");
-//        animal.setHungryLevel(5);
-//        animal.setMoodLevel(7);
-        Pet dog = new Pet("Kido", "dog");
-        dog.setAction("wags his tail");
-        dog.setBreed("dog");
-        dog.setMoodLevel(5);
-        Pet cat = new Pet("Mitizi", "cat");
-        cat.setAction("purring");
-        cat.setBreed("cat");
-        cat.setMoodLevel(5);
-        Pet pig = new Pet("Pepa", "pig");
-        pig.setAction("grunt");
-        pig.setBreed("pig");
-        pig.setMoodLevel(5);
-        Bird parrot = new Bird("Blue");
-        parrot.setAction("singing");
-        dog.displayMoodlevel("Kido");
-        cat.displayMoodlevel("Mitzi");
-        pig.displayMoodlevel("Pepa");
+//
+//        Rescuer rescuer = new Rescuer("John");
+////        Animal animal = new Animal("Kido");
+////        animal.setFavoriteFood("Eukanuba");
+////        animal.setFavoriteEntertainment("Hide & Seek");
+////        animal.setHungryLevel(5);
+////        animal.setMoodLevel(7);
+//        Pet dog = new Pet("Kido", "dog");
+//        dog.setAction("wags his tail");
+//        dog.setMoodLevel(5);
+//        Pet cat = new Pet("Mitizi", "cat");
+//        cat.setAction("purring");
+//        cat.setMoodLevel(5);
+//        Pet pig = new Pet("Pepa", "pig");
+//        pig.setAction("grunt");
+//        pig.setMoodLevel(5);
+//        Bird parrot = new Bird("Blue", "parrot");
+////        parrot.setSpecies("parrot");
+//        parrot.setAction("singing");
+//        parrot.setMoodLevel(4);
+//        parrot.displayMoodlevel("Blue");
+//        dog.displayMoodlevel("Kido");
+//        cat.displayMoodlevel("Mitzi");
+//        pig.displayMoodlevel("Pepa");
 
 
 
@@ -76,17 +76,17 @@ public class App {
 //        veterinar.speciality = "VetDentist";
 //        System.out.println("Vet name: " + veterinar.name);
 //        System.out.println("Speciality: " + veterinar.speciality);
+////
+//        AnimalFood mancare = new AnimalFood("Eukanuba");
+//        mancare.setDataExpirare(LocalDate.of(2020, 12, 10));
+//        mancare.setPrice(15);
+//        mancare.setTypeOfFood("Dietetic");
+//        mancare.setQuantity(1);
+//        mancare.setAvailable(true);
+//        System.out.println();
+//        System.out.println("Food name: " + mancare.getName());
+//        System.out.println("Expire due: " + mancare.getDataExpirare());
+//        System.out.println("Price: " + mancare.getPrice() + " $");
 //
-        AnimalFood mancare = new AnimalFood("Eukanuba");
-        mancare.setDataExpirare(LocalDate.of(2020, 12, 10));
-        mancare.setPrice(15);
-        mancare.setTypeOfFood("Dietetic");
-        mancare.setQuantity(1);
-        mancare.setAvailable(true);
-        System.out.println();
-        System.out.println("Food name: " + mancare.getName());
-        System.out.println("Expire due: " + mancare.getDataExpirare());
-        System.out.println("Price: " + mancare.getPrice() + " $");
-
-    }
+//    }
 }
