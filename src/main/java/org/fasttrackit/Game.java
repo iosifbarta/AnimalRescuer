@@ -7,22 +7,64 @@ import java.util.Scanner;
 
 public class Game {
     private List<Food> availableFood = new ArrayList<>();
-    private Entertainment[] availableActivities = new Entertainment[3];
+    private Entertainment[] availableActivities = new Entertainment[5];
+    private Pet[] availablePets = new  Pet[2];
 
     public void start(){
 
     System.out.println(" Welcome to Animal Rescuer");
 
         System.out.println();
-    initializeEntertainment();
-    displayEntertainment();
-    Entertainment selectedEntertainment = getSelectedEntertainmentFromUser();
+        initRescuer();
+        initAnimal();
+        displayAvailablePets();
+        Pet selectedPet = getSelectedPetFromUser();
+        System.out.println("Selected pet: " + selectedPet.getBreed());
+
+
+
+        initializeAvailableFood();
+        displayAvailableFood();
+        Food selectedFood = getSelectedFoodFromUser();
+        System.out.println("Selected Food: " + selectedFood.getName());
+
+        initializeEntertainment();
+        displayEntertainment();
+        Entertainment selectedEntertainment = getSelectedEntertainmentFromUser();
         System.out.println("Selected Entertainment: " + selectedEntertainment.getName());
 
-    initializeAvailableFood();
-    displayAvailableFood();
-    Food selectedFood = getSelectedFoodFromUser();
-        System.out.println("Selected Food: " + selectedFood.getName());
+
+    }
+    private void initAnimal(){
+        Pet pet = new Pet("Kido", "Dog");
+        pet.setAge(7);
+        pet.setFavoriteFood("Eukanuba");
+        pet.setFavoriteEntertainment("Hide & Seek");
+        pet.setHealthyLevel(9);
+        pet.setHungryLevel(5);
+        pet.setMoodLevel(8);
+        pet.setTypeOfHair("long");
+        pet.setSize("big");
+        pet.setGender("male");
+        pet.setClean(false);
+        pet.setFiziologicNeed(true);
+        pet.setAction("sleeping");
+        availablePets[0] = pet;
+
+        Pet pet1 = new Pet("Garfield", "Cat");
+        pet1.setAge(4);
+        pet1.setFavoriteFood("Purina");
+        pet1.setFavoriteEntertainment("Catching Mouse");
+        pet1.setHealthyLevel(7);
+        pet1.setHungryLevel(6);
+        pet1.setMoodLevel(5);
+        pet1.setTypeOfHair("short");
+        pet1.setSize("kitten");
+        pet1.setGender("female");
+        pet1.setClean(true);
+        pet1.setFiziologicNeed(false);
+        pet1.setAction("purring");
+        availablePets[1] = pet1;
 
 
     }
@@ -59,6 +101,14 @@ public class Game {
         game3.setDuration(15);
         availableActivities[2] = game3;
 
+        Entertainment game4 = new Entertainment("Catching Mice");
+        game4.setDuration(60);
+        availableActivities[3] = game4;
+
+        Entertainment game5 = new Entertainment("Watching birds");
+        game5.setDuration(60);
+        availableActivities[4] = game5;
+
     }
     public void displayEntertainment(){
         System.out.println("Available entertainment: ");
@@ -91,5 +141,27 @@ public class Game {
         Scanner scanner = new Scanner(System.in);
         int selectFood = scanner.nextInt();
         return availableFood.get(selectFood-1);
+
+
+    }
+    public void displayAvailablePets(){
+        System.out.println("Available pets for you: ");
+        for (int i=0; i<availablePets.length; i++){
+            System.out.println((i+1) + ". " + availablePets[i].getBreed() + " " + availablePets[i].getAge() + " months old.");
+        }
+    }
+    private Pet getSelectedPetFromUser(){
+        System.out.println("Please select a pet for you from list.");
+        Scanner scanner = new Scanner(System.in);
+        int selectedNumber = scanner.nextInt();
+        return availablePets[selectedNumber-1];
+    }
+    public void initRescuer(){
+        System.out.println("Hello rescuer, please enter your name!");
+        Scanner scanner = new Scanner(System.in);
+        String nameOfRescuer = scanner.nextLine();
+        Rescuer rescuer = new Rescuer(nameOfRescuer);
+        rescuer.setCash(500);
+        System.out.println("Hello " + nameOfRescuer + ". Welcome to " +(char)34 + "Animal Rescuer" + (char)34 + ".");
     }
 }

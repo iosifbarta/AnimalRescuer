@@ -4,7 +4,6 @@ public class Rescuer {
     private String name;
     private double cash;
     private String gender;
-    private String category; //child or man
 
     public Rescuer(String name) {
         this.name = name;
@@ -58,13 +57,5 @@ public class Rescuer {
 
     public void setGender(String gender) {
         this.gender = gender;
-    }
-
-    public String getCategory() {
-        return category;
-    }
-
-    public void setCategory(String category) {
-        this.category = category;
     }
 }
