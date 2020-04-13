@@ -24,7 +24,7 @@ public class Game {
         displayAvailablePets();
         selectedPet = getSelectedPetFromUser();
         System.out.println("The pet you chosen is a " + selectedPet.getBreed());
-        selectedPet.setName(nameAnimal());
+        nameAnimal();
         System.out.println(selectedPet.getName() + "'s status is:\n-happiness level: "+ selectedPet.getMoodLevel() + "\n-hungry level: "
         + selectedPet.getHungryLevel());
         initializeAvailableFood();
@@ -217,7 +217,7 @@ public class Game {
         player.setCash(300);
         System.out.println("Hello " + nameOfRescuer + ". Welcome to " + (char) 34 + "Animal Rescuer" + (char) 34 + ".");
     }
-    private String nameAnimal(){
+    private void nameAnimal(){
         System.out.println("\nPlease enter a name for your pet");
         String newName = ScannerUtils.nextLine();
         try {
@@ -229,7 +229,7 @@ public class Game {
              nameAnimal();
         }
         System.out.println("Name for your pet is: " + newName);
-        return newName;
+        selectedPet.setName(newName);
     }
 //    private int hungryLevel(){
 //        int setHungryLevel = ThreadLocalRandom.current().nextInt(0,10);
