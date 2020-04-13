@@ -18,13 +18,13 @@ public class App {
 //        System.out.println("Hungry Level: " + dog.hungryLevel);
 //        System.out.println("Mood Level: " + dog.moodLevel);
 //        System.out.println();
-//
+////
 //        Rescuer rescuer = new Rescuer("John");
-////        Animal animal = new Animal("Kido");
-////        animal.setFavoriteFood("Eukanuba");
-////        animal.setFavoriteEntertainment("Hide & Seek");
-////        animal.setHungryLevel(5);
-////        animal.setMoodLevel(7);
+//        Pet animal = new Pet("Kido", "dog");
+//        animal.setFavoriteFood("Eukanuba");
+//        animal.setFavoriteEntertainment("Hide & Seek");
+//        animal.setHungryLevel(5);
+//        animal.setMoodLevel(2);
 //        Pet dog = new Pet("Kido", "dog");
 //        dog.setAction("wags his tail");
 //        dog.setMoodLevel(5);
@@ -57,8 +57,10 @@ public class App {
 //        System.out.println();
 //        rescuer.recreation(animal, activity);
 //
-//        Activity activity1 = new Activity("Hide & Seek");
+//        Entertainment activity1 = new Entertainment("alalaba");
 //        rescuer.recreation(animal, activity1);
+//        Food food = new Food("Eukanuba");
+//        rescuer.toFeed(animal, food);
 
 
 

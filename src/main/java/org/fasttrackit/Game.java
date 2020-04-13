@@ -5,6 +5,7 @@ import org.fasttrackit.utils.ScannerUtils;
 import java.time.LocalDate;
 import java.util.*;
 import java.util.InputMismatchException;
+import java.util.concurrent.ThreadLocalRandom;
 
 
 public class Game {
@@ -13,8 +14,6 @@ public class Game {
     private Pet[] availablePets = new  Pet[2];
     private Rescuer player;
     private Pet selectedPet;
-    private Food selectedFood;
-    private Entertainment selectedEntertainment;
 
     public void start() throws Exception {
 
@@ -24,35 +23,29 @@ public class Game {
         initAnimal();
         displayAvailablePets();
         selectedPet = getSelectedPetFromUser();
-        System.out.println("The pet you chosen is: " + selectedPet.getBreed());
+        System.out.println("The pet you chosen is a " + selectedPet.getBreed());
         selectedPet.setName(nameAnimal());
         System.out.println(selectedPet.getName() + "'s status is:\n-happiness level: "+ selectedPet.getMoodLevel() + "\n-hungry level: "
         + selectedPet.getHungryLevel());
         initializeAvailableFood();
-        displayAvailableFood();
-        selectedFood = getSelectedFoodFromUser();
-        System.out.println("You have selected: " + selectedFood.getName() + "'s food");
         requireFeeding();
         initializeEntertainment();
-        displayEntertainment();
-        selectedEntertainment = getSelectedEntertainmentFromUser();
-        System.out.println("Selected Entertainment: " + selectedEntertainment.getName());
         requireActivity();
-//        while (selectedPet.getHungryLevel() > 0){
-//            requireFeeding();
-//        }
+        while (selectedPet.getHungryLevel() > 0 && selectedPet.getMoodLevel() <10){
+            requireFeeding();requireActivity();
+        }
 
     }
 
 
     private void initAnimal(){
-        Pet pet = new Pet("", "Dog");
+        Pet pet = new Pet("", "dog");
         pet.setAge(7);
         pet.setFavoriteFood("Eukanuba");
         pet.setFavoriteEntertainment("Hide & Seek");
         pet.setHealthyLevel(9);
-        pet.setHungryLevel(8);
-        pet.setMoodLevel(3);
+        pet.setHungryLevel(ThreadLocalRandom.current().nextInt(0,10));
+        pet.setMoodLevel(ThreadLocalRandom.current().nextInt(0,10));
         pet.setTypeOfHair("long");
         pet.setSize("big");
         pet.setGender("male");
@@ -61,13 +54,13 @@ public class Game {
         pet.setAction("sleeping");
         availablePets[0] = pet;
 
-        Pet pet1 = new Pet("", "Cat");
+        Pet pet1 = new Pet("", "cat");
         pet1.setAge(4);
         pet1.setFavoriteFood("Purina");
         pet1.setFavoriteEntertainment("Catching Mouse");
         pet1.setHealthyLevel(7);
-        pet1.setHungryLevel(8);
-        pet1.setMoodLevel(3);
+        pet1.setHungryLevel(ThreadLocalRandom.current().nextInt(0,10));
+        pet1.setMoodLevel(ThreadLocalRandom.current().nextInt(0,10));
         pet1.setTypeOfHair("short");
         pet1.setSize("kitten");
         pet1.setGender("female");
@@ -103,7 +96,7 @@ public class Game {
         game1.setDuration(30);
         availableActivities[0] = game1;
 
-        Entertainment game2 = new Entertainment("Play frisbee");
+        Entertainment game2 = new Entertainment("Frisbee");
         game2.setDuration(60);
         availableActivities[1] = game2;
 
@@ -171,19 +164,30 @@ public class Game {
         }
     }
 
-    public void requireFeeding (){
+    public void requireFeeding () throws Exception {
         if (selectedPet.getHungryLevel() >0){
             System.out.println("\nYour pet require feeding");
+            displayAvailableFood();
+            Food selectedFood = getSelectedFoodFromUser();
+            System.out.println("You have selected: " + selectedFood.getName() + "'s food.");
             player.toFeed(selectedPet, selectedFood);
-
+            System.out.println(player.getName() + " feeding his " + selectedPet.getBreed());
+            System.out.println(selectedPet.getName() + "'s new status is:\n-happiness level: "+ selectedPet.getMoodLevel() + "\n-hungry level: "
+                    + selectedPet.getHungryLevel());
         }else System.out.println("Your pet it's not hungry");
     }
 
     public  void requireActivity(){
         if (selectedPet.getMoodLevel() < 10){
             System.out.println("\nThe pet needs some activity");
+            displayEntertainment();
+            Entertainment selectedEntertainment = getSelectedEntertainmentFromUser();
+            System.out.println("You have selected: " + selectedEntertainment.getName() + " 's activity.");
             player.recreation(selectedPet, selectedEntertainment);
-        }
+            System.out.println(player.getName() + " starts play "+ selectedEntertainment.getName() + " with his "+ selectedPet.getBreed());
+            System.out.println(selectedPet.getName() + "'s new status is:\n-happiness level: "+ selectedPet.getMoodLevel() + "\n-hungry level: "
+                    + selectedPet.getHungryLevel());
+        }else System.out.println("Your pet it's very happy");
 
     }
 
@@ -209,8 +213,9 @@ public class Game {
             System.out.println("Please enter a valid name");
             initRescuer();
         }
-        System.out.println("Hello " + nameOfRescuer + ". Welcome to " + (char) 34 + "Animal Rescuer" + (char) 34 + ".");
         player.setName(nameOfRescuer);
+        player.setCash(300);
+        System.out.println("Hello " + nameOfRescuer + ". Welcome to " + (char) 34 + "Animal Rescuer" + (char) 34 + ".");
     }
     private String nameAnimal(){
         System.out.println("\nPlease enter a name for your pet");
@@ -226,5 +231,13 @@ public class Game {
         System.out.println("Name for your pet is: " + newName);
         return newName;
     }
+//    private int hungryLevel(){
+//        int setHungryLevel = ThreadLocalRandom.current().nextInt(0,10);
+//        return setHungryLevel;
+//    }
+//    private int moodLevel(){
+//        int setMoodLevel =ThreadLocalRandom.current().nextInt(0,10);
+//        return setMoodLevel;
+//    }
 }
 
