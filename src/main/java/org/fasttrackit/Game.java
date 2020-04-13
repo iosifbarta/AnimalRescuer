@@ -1,48 +1,58 @@
 package org.fasttrackit;
 
+import org.fasttrackit.utils.ScannerUtils;
+
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
+import java.util.InputMismatchException;
+
 
 public class Game {
     private List<Food> availableFood = new ArrayList<>();
     private Entertainment[] availableActivities = new Entertainment[5];
     private Pet[] availablePets = new  Pet[2];
+    private Rescuer player;
+    private Pet selectedPet;
+    private Food selectedFood;
+    private Entertainment selectedEntertainment;
 
-    public void start(){
+    public void start() throws Exception {
 
-    System.out.println(" Welcome to Animal Rescuer");
+    System.out.println(" Welcome to Animal Rescuer\n");
 
-        System.out.println();
         initRescuer();
         initAnimal();
         displayAvailablePets();
-        Pet selectedPet = getSelectedPetFromUser();
-        System.out.println("Selected pet: " + selectedPet.getBreed());
-
-
-
+        selectedPet = getSelectedPetFromUser();
+        System.out.println("The pet you chosen is: " + selectedPet.getBreed());
+        selectedPet.setName(nameAnimal());
+        System.out.println(selectedPet.getName() + "'s status is:\n-happiness level: "+ selectedPet.getMoodLevel() + "\n-hungry level: "
+        + selectedPet.getHungryLevel());
         initializeAvailableFood();
         displayAvailableFood();
-        Food selectedFood = getSelectedFoodFromUser();
-        System.out.println("Selected Food: " + selectedFood.getName());
-
+        selectedFood = getSelectedFoodFromUser();
+        System.out.println("You have selected: " + selectedFood.getName() + "'s food");
+        requireFeeding();
         initializeEntertainment();
         displayEntertainment();
-        Entertainment selectedEntertainment = getSelectedEntertainmentFromUser();
+        selectedEntertainment = getSelectedEntertainmentFromUser();
         System.out.println("Selected Entertainment: " + selectedEntertainment.getName());
-
+        requireActivity();
+//        while (selectedPet.getHungryLevel() > 0){
+//            requireFeeding();
+//        }
 
     }
+
+
     private void initAnimal(){
-        Pet pet = new Pet("Kido", "Dog");
+        Pet pet = new Pet("", "Dog");
         pet.setAge(7);
         pet.setFavoriteFood("Eukanuba");
         pet.setFavoriteEntertainment("Hide & Seek");
         pet.setHealthyLevel(9);
-        pet.setHungryLevel(5);
-        pet.setMoodLevel(8);
+        pet.setHungryLevel(8);
+        pet.setMoodLevel(3);
         pet.setTypeOfHair("long");
         pet.setSize("big");
         pet.setGender("male");
@@ -51,13 +61,13 @@ public class Game {
         pet.setAction("sleeping");
         availablePets[0] = pet;
 
-        Pet pet1 = new Pet("Garfield", "Cat");
+        Pet pet1 = new Pet("", "Cat");
         pet1.setAge(4);
         pet1.setFavoriteFood("Purina");
         pet1.setFavoriteEntertainment("Catching Mouse");
         pet1.setHealthyLevel(7);
-        pet1.setHungryLevel(6);
-        pet1.setMoodLevel(5);
+        pet1.setHungryLevel(8);
+        pet1.setMoodLevel(3);
         pet1.setTypeOfHair("short");
         pet1.setSize("kitten");
         pet1.setGender("female");
@@ -69,7 +79,7 @@ public class Game {
 
     }
     private void initializeAvailableFood(){
-        System.out.println("Available Food");
+        System.out.println("\nAvailable Food: ");
             Food food = new Food("Eukanuba");
             food.setDataExpirare(LocalDate.of(2021, 7, 10));
             food.setQuantity(2);
@@ -82,9 +92,9 @@ public class Game {
             food2.setQuantity(4);
             food2.setPrice(20);
             food2.setDataExpirare(LocalDate.of(2021, 5,15));
-            availableFood.add(food);
-            availableFood.add(food1);
-            availableFood.add(food2);
+            availableFood.add(0,food);
+            availableFood.add(1,food1);
+            availableFood.add(2,food2);
 
     }
 
@@ -111,7 +121,7 @@ public class Game {
 
     }
     public void displayEntertainment(){
-        System.out.println("Available entertainment: ");
+        System.out.println("\nAvailable entertainment: ");
         for (int i=0; i<availableActivities.length; i++) {
             System.out.println((i+1) + ". "  + (char)34 + availableActivities[i].getName() + (char)34 + " - duration "
                     + availableActivities[i].getDuration() + " min.");
@@ -119,10 +129,14 @@ public class Game {
     }
 
     private Entertainment getSelectedEntertainmentFromUser(){
-        System.out.println("Please select entertainment: ");
-        Scanner scanner = new Scanner(System.in);
-        int entertainmentNumber = scanner.nextInt();
-        return availableActivities[entertainmentNumber - 1];
+        System.out.println("\nPlease select entertainment: ");
+        try {
+            int entertainmentNumber = ScannerUtils.nextSingleInt();
+            return availableActivities[entertainmentNumber-1];
+        }catch (ArrayIndexOutOfBoundsException | InputMismatchException e) {
+            System.out.println("Please enter a valid number from list");
+            return getSelectedEntertainmentFromUser();
+        }
     }
     public  void displayAvailableFood() {
 //        for (int i = 0; i < availableFood.size(); i++) {
@@ -131,37 +145,86 @@ public class Game {
 //        }
         for (Food food : availableFood){
            if(food != null){
-               System.out.println(food.getName());
+               System.out.println((availableFood.indexOf(food) + 1) + ". " + food.getName());
            }
         }
     }
-    private Food  getSelectedFoodFromUser(){
-
-        System.out.println("Please select food: ");
-        Scanner scanner = new Scanner(System.in);
-        int selectFood = scanner.nextInt();
-        return availableFood.get(selectFood-1);
+    private Food  getSelectedFoodFromUser() throws Exception {
+        try {
+            System.out.println("\nPlease select food: ");
+            int selectFood = ScannerUtils.nextSingleInt();
+            return availableFood.get(selectFood - 1);
+        }catch (ArrayIndexOutOfBoundsException e){
+            System.out.println("Please enter a valid number from list");
+            throw new Exception();
+        }catch (Exception e){
+            System.out.println("Please enter a valid value from list");
+            return getSelectedFoodFromUser();
+        }
 
 
     }
     public void displayAvailablePets(){
-        System.out.println("Available pets for you: ");
+        System.out.println("\nAvailable pets for you: ");
         for (int i=0; i<availablePets.length; i++){
             System.out.println((i+1) + ". " + availablePets[i].getBreed() + " " + availablePets[i].getAge() + " months old.");
         }
     }
+
+    public void requireFeeding (){
+        if (selectedPet.getHungryLevel() >0){
+            System.out.println("\nYour pet require feeding");
+            player.toFeed(selectedPet, selectedFood);
+
+        }else System.out.println("Your pet it's not hungry");
+    }
+
+    public  void requireActivity(){
+        if (selectedPet.getMoodLevel() < 10){
+            System.out.println("\nThe pet needs some activity");
+            player.recreation(selectedPet, selectedEntertainment);
+        }
+
+    }
+
     private Pet getSelectedPetFromUser(){
-        System.out.println("Please select a pet for you from list.");
-        Scanner scanner = new Scanner(System.in);
-        int selectedNumber = scanner.nextInt();
-        return availablePets[selectedNumber-1];
+        try {System.out.println("\nPlease select a pet for you from list.");
+            int selectedNumber = ScannerUtils.nextSingleInt();
+            return availablePets[selectedNumber - 1];
+        }catch (InputMismatchException | ArrayIndexOutOfBoundsException e){
+            System.out.println("You have entered a invalid value. Please select a number from list");
+            return getSelectedPetFromUser();
+        }
     }
     public void initRescuer(){
-        System.out.println("Hello rescuer, please enter your name!");
-        Scanner scanner = new Scanner(System.in);
-        String nameOfRescuer = scanner.nextLine();
-        Rescuer rescuer = new Rescuer(nameOfRescuer);
-        rescuer.setCash(500);
-        System.out.println("Hello " + nameOfRescuer + ". Welcome to " +(char)34 + "Animal Rescuer" + (char)34 + ".");
+        String nameOfRescuer = null;
+        player = new Rescuer(nameOfRescuer);
+        System.out.println("\nHello rescuer, please enter your name!");
+        try {
+            nameOfRescuer = ScannerUtils.nextLine();
+            if (nameOfRescuer.isEmpty()) {
+                throw new Exception("Enter a valid value");
+            }
+        } catch (Exception e) {
+            System.out.println("Please enter a valid name");
+            initRescuer();
+        }
+        System.out.println("Hello " + nameOfRescuer + ". Welcome to " + (char) 34 + "Animal Rescuer" + (char) 34 + ".");
+        player.setName(nameOfRescuer);
+    }
+    private String nameAnimal(){
+        System.out.println("\nPlease enter a name for your pet");
+        String newName = ScannerUtils.nextLine();
+        try {
+            if (newName.isEmpty()) {
+                throw new Exception();
+            }
+        } catch (Exception e) {
+            System.out.println("Please enter a valid name");
+             nameAnimal();
+        }
+        System.out.println("Name for your pet is: " + newName);
+        return newName;
     }
 }
+
